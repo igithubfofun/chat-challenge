@@ -87,6 +87,7 @@ $(function() {
     if (data.message.startsWith('/giphy')){
       giphyMessage = data.message.replace('/giphy ', '');
 
+      //calls in giphy api
       var giphyApiRoot = 'http://api.giphy.com/v1/gifs/search?q=' + giphyMessage + '&api_key=dc6zaTOxFJmzC';
       $.ajax({
         method: "GET",
@@ -96,20 +97,12 @@ $(function() {
       })
 
       .done(function(data){
-
+          //appends the first image to messages
           giphyImg = data.data[0].images.original.url;
           $('.messages').append("<img src='" + giphyImg + "'>");
-
       })
-
-
-      console.log(giphyMessage);
     }
 
-
-
-
-    console.log(data);
     var $typingMessages = getTypingMessages(data);
     options = options || {};
     if ($typingMessages.length !== 0) {
@@ -262,7 +255,7 @@ $(function() {
   socket.on('login', function (data) {
     connected = true;
     // Display the welcome message
-    var message = "Welcome to Socket.IO Chat – ";
+    var message = "Chat Challenge App – ";
     log(message, {
       prepend: true
     });

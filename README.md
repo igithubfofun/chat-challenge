@@ -1,25 +1,8 @@
+Cnverg Chat Challenge
 
-# Socket.IO Chat
+1. Clone file
+2. npm install
+3. go to localhost 3000 (multiple windows of this may be open to communicate)
+4. message away! (type in /giphy 'content' to display a giphy)
 
-A simple chat demo for socket.io
-
-## How to use
-
-```
-$ cd socket.io
-$ npm install
-$ cd examples/chat
-$ npm install
-$ node .
-```
-
-And point your browser to `http://localhost:3000`. Optionally, specify
-a port by supplying the `PORT` env variable.
-
-## Features
-
-- Multiple users can join a chat room by each entering a unique username
-on website load.
-- Users can type chat messages to the chat room.
-- A notification is sent to all users when a user joins or leaves
-the chatroom.
+This template was used from socket.io. I was able to integrate the giphy api into it.
