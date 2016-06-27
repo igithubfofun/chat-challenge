@@ -99,7 +99,7 @@ $(function() {
       .done(function(data){
           //appends the first image to messages
           giphyImg = data.data[0].images.original.url;
-          $('.messages').append("<img src='" + giphyImg + "'><br><img src=./public/giphyintegration.jpg/>");
+          $('.messages').append("<img class='img' src='" + giphyImg + "'><br><img src='giphyintegration.png'/>");
       })
     }
 
