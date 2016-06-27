@@ -88,7 +88,7 @@ $(function() {
       giphyMessage = data.message.replace('/giphy ', '');
       console.log(giphyMessage)
       //calls in giphy api
-      var giphyApiRoot = 'http://api.giphy.com/v1/gifs/search?q=' + giphyMessage + '&api_key=' + 'KHUbuvSacLr6o';
+      var giphyApiRoot = 'https://api.giphy.com/v1/gifs/search?q=' + giphyMessage + '&api_key=' + 'KHUbuvSacLr6o';
       $.ajax({
         method: "GET",
         url: giphyApiRoot,

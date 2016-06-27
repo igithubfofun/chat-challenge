@@ -11,25 +11,6 @@ server.listen(port, function () {
   console.log('Server listening at port %d', port);
 });
 
-var context = '/api'
-var options = {
-  target: 'https://api.giphy.com/v1/',
-  changeOrigin: true,
-  logLevel: 'debug',
-  onError: function onError(err, req, res) {
-    res.writeHead(500, {
-        'Content-Type': 'text/plain'
-    });
-    res.end('Something went wrong. And we are reporting a custom error message.');
-  },
-  pathRewrite: {
-    "^/api" : "/",
-  }
-};
-
-var proxy = proxyMiddleware(context, options);
-app.use(proxy);
-
 
 // Routing
 app.use(express.static(__dirname + '/public'));
