@@ -1,3 +1,5 @@
+
+
 $(function() {
   var FADE_TIME = 150; // ms
   var TYPING_TIMER_LENGTH = 400; // ms
@@ -88,7 +90,7 @@ $(function() {
       giphyMessage = data.message.replace('/giphy ', '');
       console.log(giphyMessage)
       //calls in giphy api
-      var giphyApiRoot = 'http://api.giphy.com/v1/gifs/search?q=' + giphyMessage + '&api_key=dc6zaTOxFJmzC';
+      var giphyApiRoot = 'http://api.giphy.com/v1/gifs/search?q=' + giphyMessage + '&api_key=' + 'KHUbuvSacLr6o';
       $.ajax({
         method: "GET",
         url: giphyApiRoot,
@@ -255,7 +257,7 @@ $(function() {
   socket.on('login', function (data) {
     connected = true;
     // Display the welcome message
-    var message = "Chat Challenge App – ";
+    var message = "Chat Me Now – ";
     log(message, {
       prepend: true
     });
