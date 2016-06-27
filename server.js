@@ -4,12 +4,31 @@ var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 var port = process.env.PORT || 3000;
-
+var proxyMiddleware = require('http-proxy-middleware');
 var gapi = require('./secret.js');
 
 server.listen(port, function () {
   console.log('Server listening at port %d', port);
 });
+
+var context = '/api'
+var options = {
+  target: 'https://api.giphy.com/v1/',
+  changeOrigin: true,
+  logLevel: 'debug',
+  onError: function onError(err, req, res) {
+    res.writeHead(500, {
+        'Content-Type': 'text/plain'
+    });
+    res.end('Something went wrong. And we are reporting a custom error message.');
+  },
+  pathRewrite: {
+    "^/api" : "/",
+  }
+};
+
+var proxy = proxyMiddleware(context, options);
+app.use(proxy);
 
 
 // Routing
