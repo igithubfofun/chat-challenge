@@ -86,7 +86,7 @@ $(function() {
 
     if (data.message.startsWith('/giphy')){
       giphyMessage = data.message.replace('/giphy ', '');
-
+      console.log(giphyMessage)
       //calls in giphy api
       var giphyApiRoot = 'http://api.giphy.com/v1/gifs/search?q=' + giphyMessage + '&api_key=dc6zaTOxFJmzC';
       $.ajax({
@@ -99,7 +99,7 @@ $(function() {
       .done(function(data){
           //appends the first image to messages
           giphyImg = data.data[0].images.original.url;
-          $('.messages').append("<img src='" + giphyImg + "'>");
+          $('.messages').append("<img src='" + giphyImg + "'><br><img src=./public/giphyintegration.jpg/>");
       })
     }
 
