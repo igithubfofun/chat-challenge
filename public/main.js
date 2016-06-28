@@ -84,9 +84,9 @@ $(function() {
   function addChatMessage (data, options) {
     // Don't fade the message in if there is an 'X was typing'
 
-    if (data.message.startsWith('/giphy')){
-      giphyMessage = data.message.replace('/giphy ', '');
-
+    if (data.message.includes('/')){
+      giphyMessage = data.message.slice(7);
+      console.log(giphyMessage);
       //calls in giphy api
       var giphyApiRoot = 'https://api.giphy.com/v1/gifs/search?q=' + giphyMessage + '&api_key=' + 'KHUbuvSacLr6o';
       $.ajax({
