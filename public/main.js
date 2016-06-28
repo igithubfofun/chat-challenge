@@ -86,13 +86,15 @@ $(function() {
 
     if (data.message.startsWith('/giphy')){
       giphyMessage = data.message.replace('/giphy ', '');
-      console.log(giphyMessage)
+
       //calls in giphy api
       var giphyApiRoot = 'https://api.giphy.com/v1/gifs/search?q=' + giphyMessage + '&api_key=' + 'KHUbuvSacLr6o';
       $.ajax({
         method: "GET",
         url: giphyApiRoot,
         data: {
+          height: "fixed_height",
+          width: "fixed_width"
         }
       })
 
