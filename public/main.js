@@ -22,6 +22,7 @@ $(function() {
   var typing = false;
   var lastTypingTime;
   var giphyMessage = "";
+  var slashCommand = "";
   var giphyImg = "";
   var $currentInput = $usernameInput.focus();
 
@@ -85,24 +86,29 @@ $(function() {
     // Don't fade the message in if there is an 'X was typing'
 
     if (data.message.includes('/')){
-      giphyMessage = data.message.slice(7);
-      console.log(giphyMessage);
-      //calls in giphy api
-      var giphyApiRoot = 'https://api.giphy.com/v1/gifs/search?q=' + giphyMessage + '&api_key=' + 'KHUbuvSacLr6o';
-      $.ajax({
-        method: "GET",
-        url: giphyApiRoot,
-        data: {
-          height: "fixed_height",
-          width: "fixed_width"
-        }
-      })
+      slashCommand = data.message.split(' ')[0].toLowerCase();
+      giphyMessage = data.message.slice(6, data.message.length);
 
-      .done(function(data){
-          //appends the first image to messages
-          giphyImg = data.data[0].images.original.url;
-          $('.messages').append("<img class='img' src='" + giphyImg + "'><br><img src='giphyintegration.png'/>");
-      })
+      console.log(slashCommand);
+
+        if (slashCommand === "/giphy"){
+        //calls in giphy api
+        var giphyApiRoot = 'https://api.giphy.com/v1/gifs/search?q=' + giphyMessage + '&api_key=' + 'KHUbuvSacLr6o';
+        $.ajax({
+          method: "GET",
+          url: giphyApiRoot,
+          data: {
+            height: "fixed_height",
+            width: "fixed_width"
+          }
+        })
+
+        .done(function(data){
+            //appends the first image to messages
+            giphyImg = data.data[0].images.original.url;
+            $('.messages').append("<img class='img' src='" + giphyImg + "'><br><img src='giphyintegration.png'/>");
+        })
+      }
     }
 
     var $typingMessages = getTypingMessages(data);
