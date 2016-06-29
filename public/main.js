@@ -89,8 +89,6 @@ $(function() {
       slashCommand = data.message.split(' ')[0].toLowerCase();
       giphyMessage = data.message.slice(6, data.message.length);
 
-      console.log(slashCommand);
-
         if (slashCommand === "/giphy"){
         //calls in giphy api
         var giphyApiRoot = 'https://api.giphy.com/v1/gifs/search?q=' + giphyMessage + '&api_key=' + 'KHUbuvSacLr6o';
