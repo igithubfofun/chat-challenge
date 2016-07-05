@@ -1,5 +1,7 @@
 Cnverg Chat Challenge
 
+https://chat-me-now.herokuapp.com/
+
 1. Clone file
 2. npm install
 3. go to localhost 3000 (multiple windows of this may be open to communicate)
